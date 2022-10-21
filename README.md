@@ -24,7 +24,7 @@ npm install
 npm run dev
 ```
 
-> ICONSDK Network: dev (https://lisbon.net.solidwallet.io)  
+> ICONSDK Network: dev (https://wallet.icon.foundation/api/v3)  
 
 [Load unpacked extensions](https://developer.chrome.com/extensions/getstarted#unpacked) with `./build-test` folder.
 
@@ -45,4 +45,4 @@ Then, open `http://localhost:8000`.
 npm run build
 ```
 
-> ICONSDK Network: default (wallet.icon.foundation) 
+> ICONSDK Network: default (https://wallet.icon.foundation/api/v3) 
