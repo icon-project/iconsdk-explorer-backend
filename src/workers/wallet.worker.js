@@ -187,9 +187,6 @@ onmessage = function (m) {
             case 'icx':
               key = wallet.getAddressIcx().toString('hex');
               break;
-            case 'eth':
-              key = check0xPrefix(wallet.getAddress().toString('hex'));
-              break;
             default:
               break;
           }
@@ -222,7 +219,6 @@ onmessage = function (m) {
 
     case 'exportWallet_3':
       const exportWalletObjects = m.data.exportWalletObjects
-      console.log('from walletworker exportWallet_3', exportWalletObjects)
       for (let i = 0; i < exportWalletObjects.length; i++) {
         const key = Object.keys(exportWalletObjects[i])[0];
         const priv = new Wallet(new Buffer(exportWalletObjects[i][key].priv._privKey));

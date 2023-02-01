@@ -15,7 +15,6 @@ class ContractSearchSection extends Component {
   }
 
   handleContractAddressChange = (e) => {
-    console.log(isIcxContractAddress(e.target.value), e.target.value)
     this.props.setContractAddress(e.target.value)
     if (e.target.value.length === 42) {
       this.props.fetchAbi(e.target.value)

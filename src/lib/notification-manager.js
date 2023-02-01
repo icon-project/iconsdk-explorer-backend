@@ -44,7 +44,6 @@ class NotificationManager {
   isShown(popupId) {
     return new Promise(resolve => {
       extension.windows.getAll(wins => {
-        console.log(wins)
         resolve(!!wins.filter(win => win.id === popupId).length)
       })
     })

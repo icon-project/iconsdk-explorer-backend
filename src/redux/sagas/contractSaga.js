@@ -142,7 +142,6 @@ export function* checkContractInputErrorFunc(action) {
       }))
     }
   } catch (error) {
-    console.log(error)
     yield put({ type: AT.executeFuncRejected, errorMsg: error });
   }
 }

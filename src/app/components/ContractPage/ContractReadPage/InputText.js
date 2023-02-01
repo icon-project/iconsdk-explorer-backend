@@ -3,7 +3,6 @@ import { trimLeftZero } from 'utils/utils'
 
 
 const InputText = ({ input, value, handleFuncInputChange, setFuncInputError, placeHolder, error }) => {
-  console.log(input)
   return (
     <div className="-group">
       <p className="title">{input.name}<em>{input.type}</em><em>{input.hasOwnProperty('default') ? '(optional)' : ''}</em></p>

@@ -26,9 +26,6 @@ const AutoSign = (() => {
     }
 
     isWhitelisted = (input) => {
-      // console.log(this.whitelist)
-      // console.log(this[pkHash])
-      // console.log(this._hashKey(input))
       return !!this.whitelist[this._hashKey(input)]
     }
 
@@ -39,7 +36,6 @@ const AutoSign = (() => {
     }
 
     _hashKey = (input) => {
-      // console.log(input)
       const { payload, host } = input
       const { from, to, data = {
         method: ""
@@ -54,8 +50,6 @@ const AutoSign = (() => {
       delete this[pkHash][hashedKey]
       clearTimeout(this.timers[hashedKey].timerId)
       delete this.timers[hashedKey]
-      // console.log('cleared')
-      // console.log(this.whitelist)
     }
   }
 

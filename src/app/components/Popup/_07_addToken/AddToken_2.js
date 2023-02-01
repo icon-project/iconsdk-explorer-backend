@@ -200,7 +200,6 @@ class AddToken2 extends Component {
     const state = this.state;
     state[target] = value
     this.setState(state);
-    console.log('value length:', value.length)
 
     // check whether address exists
     if (target === 'address' && ((walletCoinType === 'icx' && isIcxContractAddress(value)) || (walletCoinType === 'eth' && isAddress(value)))) {
@@ -233,7 +232,6 @@ class AddToken2 extends Component {
     } = this.state;
     const { tokenInfoLoading, I18n } = this.props
     const walletCoinType = currentWallet.type
-    console.log('tokenInfoLoading', tokenInfoLoading)
     return (
       <div>
         <div className="header-white">

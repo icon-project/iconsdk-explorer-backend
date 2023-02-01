@@ -82,7 +82,7 @@ class CreateWallet2 extends Component {
           <h2>{I18n.createWallet.desc2}</h2>
           <ValidationForm
             type="createWallet"
-            initialName={""}
+            initialName={''}
             ref={instance => { this.validationForm = instance; }}
             onSuccess={(walletName, pw) => this.props.generateWallet(walletName, pw, coinType)}
             {...this.props}

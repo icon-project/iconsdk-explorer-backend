@@ -55,12 +55,10 @@ window.chrome.runtime.onConnect.addListener(portFrom => {
 						if (autoSign.isWhitelisted(payload)) {
 							try {
 								const signedTransaction = autoSign.sign(payload)
-								console.log(signedTransaction)
 								const result = await icx_callScoreExternally(signedTransaction)
 								window.chrome.tabs.sendMessage(tabId, { type: 'RESPONSE_JSON-RPC', payload: result });
 							}
 							catch (error) {
-								console.log(error)
 								window.chrome.tabs.sendMessage(tabId, { type: 'RESPONSE_JSON-RPC', payload: error });
 							}
 						} else {

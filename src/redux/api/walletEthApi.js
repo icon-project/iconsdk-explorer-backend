@@ -204,7 +204,6 @@ export function eth_sendCoinApi(privKey, data) {
         window.web3.eth.sendRawTransaction(
           check0xPrefix(serializedTx), function (err, result) {
             if (err || nonceErr) {
-              console.log(err)
               reject(err);
             } else {
               resolve(result);
@@ -230,7 +229,6 @@ export function eth_sendTokenApi(privKey, data) {
         window.web3.eth.sendRawTransaction(
           check0xPrefix(serializedTx), function (err, result) {
             if (err || nonceErr) {
-              console.log(err)
               reject(err);
             } else {
               resolve(result);

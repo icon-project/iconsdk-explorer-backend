@@ -102,7 +102,6 @@ export function getTokenInfoApi(address, type) {
       return (async () => {
         const { result, error } = await icx_getTokenInfoApi({address});
         if (error) throw new Error(error);
-        console.log(result)
         return result;
       })();
     case 'eth':

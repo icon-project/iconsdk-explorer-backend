@@ -144,7 +144,6 @@ class WalletSelectorInput extends Component {
     } = this.props;
 
     const { payable = '' } = funcList[selectedFuncIndex];
-    console.log(funcList[selectedFuncIndex])
 
     return (
       <div>

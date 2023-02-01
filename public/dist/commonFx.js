@@ -7,14 +7,6 @@ function scrollFx() {
 	} else {
 		$(".header-wrap").removeClass("on");
 	}
-	// if( $("div").hasClass("vote")){
-	// 	console.log($("body, html").height(), $("body, html").scrollTop(), $(".myvote.choice").offset().top, $(".myvote.choice").height() )
-	// 	if( $(".myvote.choice").offset().top+$(".myvote.choice").height() - $("body, html").height() > $("body, html").scrollTop() -78 ){
-	// 		$(".vote").addClass("fixed");
-	// 	} else {
-	// 		$(".vote").removeClass("fixed");
-	// 	}
-	// }
 }
 
 function setTimeoutFx() {

@@ -73,10 +73,10 @@ class CreateWallet1 extends Component {
                     <input id="rbox-01" className="rbox-type" type="radio" name="rbox-1" value="icx" checked={coin === 'icx'} onChange={this.changeCoin} />
                     <label htmlFor="rbox-01" className="_img">ICON (ICX)</label>
                   </li>
-                  <li>
-                    <input id="rbox-02" className="rbox-type" type="radio" name="rbox-1" value="eth" checked={coin === 'eth'} onChange={this.changeCoin} />
-                    <label htmlFor="rbox-02" className="_img">Ethereum (ETH)</label>
-                  </li>
+                  {/*<li>*/}
+                  {/*  <input id="rbox-02" className="rbox-type" type="radio" name="rbox-1" value="eth" checked={coin === 'eth'} onChange={this.changeCoin} />*/}
+                  {/*  <label htmlFor="rbox-02" className="_img">Ethereum (ETH)</label>*/}
+                  {/*</li>*/}
                 </ul>
               </div>
             </div>

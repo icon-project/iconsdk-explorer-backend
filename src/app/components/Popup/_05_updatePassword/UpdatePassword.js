@@ -66,7 +66,6 @@ class UpdatePassword extends Component {
 
   validateCurPwForm = (e) => {
     const { wallets, selectedAccount } = this.props;
-    console.log(this.validationForm.getPassword())
     this.setState({
       loading: true
     }, () => {

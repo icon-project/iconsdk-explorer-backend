@@ -64,7 +64,6 @@ class WalletList extends Component {
       await this.initLedgerTransport();
       callback();
     } catch (error) {
-      console.log("checkError : ", error);
       this.props.eventHandler(JSON.stringify({ error }));
     }
   };
@@ -136,9 +135,7 @@ class WalletList extends Component {
       delete rawTx.path;
       delete rawTx.networkVer;
       delete rawTx.popupType;
-      // console.log("rawTx:", rawTx);
       let tx_params = queryString.parse(rawTx["queryToString"]);
-      // console.log("tx_params:", tx_params);
       const phraseToSign = generateHashKey(tx_params);
       await this.initLedgerTransport();
       const signedData = await WalletList.icx.signTransaction(
@@ -223,7 +220,6 @@ class WalletList extends Component {
 
 
   componentDidMount() {
-    console.log("Run Component Did Mount", this.state.method, this.state);
     switch (this.state.method) {
       case "getBalance":
         this.checkError(() => {

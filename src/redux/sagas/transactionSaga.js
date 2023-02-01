@@ -155,7 +155,6 @@ export function* getTxFeeInfoFunc(action) {
     }
     yield put({ type: AT.setCalcData });
   } catch (e) {
-    console.log(e)
     yield put({ type: AT.getTxFeeInfoRejected, error: e });
   }
 }
@@ -228,7 +227,6 @@ export function* sendTransactionCallFunc(action) {
           time: new Date().getTime()
         }
       }
-      console.log(data)
       yield put(addRecentTransaction(data))
     }
   } catch (e) {

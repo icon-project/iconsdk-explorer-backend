@@ -34,24 +34,8 @@ class WalletMenuBar extends Component {
 
   isWalletHasNoBalance = (walletSectionData) => {
     const {
-      staked,
-      iScore,
-    } = this.props
-    const {
       data
     } = walletSectionData
-
-    if (walletSectionData.coinType === "icx") {
-      const { account } = data[0]
-
-      if (!staked[account].value.eq(0)) {
-        return false
-      }
-
-      if (!iScore[account].value.eq(0)) {
-        return false
-      }
-    }
 
     for (const { balance } of data) {
       if (!balance.eq(0)) {

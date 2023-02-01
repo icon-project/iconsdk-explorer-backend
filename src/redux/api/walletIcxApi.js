@@ -81,7 +81,6 @@ export function icx_sendTokenApi(privKey, data) {
       }
     })
     const rawTx = makeIcxRawTx(true, newData);
-    console.log(rawTx)
     const rawTxSigned = signRawTx(privKey, rawTx)
     const result = await icx_sendTransaction(rawTxSigned);
     return result;
@@ -125,7 +124,6 @@ export function icx_checkIcxTransactionExist(data) {
     }
     walletApi.post('', JSON.stringify(param))
       .then(res => {
-        console.log(res)
         if (data.isToken) {
           if (res.data.result.status === "0x1") {
             resolve('');
@@ -159,12 +157,10 @@ export function icx_getTokenInfoApi(tokenObj) {
   return (async () => {
     try {
       const tokenFuncList = await icx_getScoreApi(tokenObj.address);
-      console.log(JSON.stringify(tokenFuncList))
       if (!isIRCTokenFunc(tokenFuncList)) {
         throw new Error('notIRCToken');
       }
       const getNameObj = tokenFuncList.filter(obj => obj.name === 'name');
-      console.log(getNameObj)
       const name = await icx_call({
         contractAddress: tokenObj.address,
         methodName: getNameObj[0].name

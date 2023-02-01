@@ -111,7 +111,6 @@ function makeTxHash(rawTx) {
 }
 
 function signHashcode(privKey, hashcode) {
-  console.log('signHashcode', hashcode)
   const message = new Buffer(hashcode, 'hex');
   const privateKey = new Buffer(privKey, 'hex');
   const sign = secp256k1.sign(message, privateKey);
@@ -125,7 +124,6 @@ function signHashcode(privKey, hashcode) {
 function signRawTx(privKey, rawTx) {
   const phraseToSign = generateHashKey(rawTx);
   const hashcode = sha3_256.update(phraseToSign).hex();
-  console.log('signRawTx', hashcode)
   const message = new Buffer(hashcode, 'hex');
   const privateKey = new Buffer(privKey, 'hex');
   const sign = secp256k1.sign(message, privateKey);
@@ -149,13 +147,11 @@ function generateHashKey(obj) {
   resultStrReplaced = resultStr
     .substring(1)
     .slice(0, -1);
-  console.log(resultStrReplaced)
   const result = 'icx_sendTransaction.' + resultStrReplaced;
   return result;
 }
 
 function objTraverse(obj) {
-  console.log(obj)
   let result = "";
   result += '{';
   let keys;

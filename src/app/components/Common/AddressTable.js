@@ -103,7 +103,6 @@ class AddressTable extends Component {
 
   isSameWalletNameExist = (value) => {
     const { ethAddressBook, icxAddressBook } = this.props;
-    console.log(ethAddressBook, icxAddressBook)
     const addressBookList = [...ethAddressBook, ...icxAddressBook]
     const addressItemWithSameName = addressBookList.filter((item) => item.name === value)
     if (addressItemWithSameName.length > 0) {

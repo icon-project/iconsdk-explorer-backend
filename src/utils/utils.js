@@ -559,7 +559,6 @@ function beautifyJson(data, tab) {
     return JSON.stringify(_data, null, tab)
   }
   catch (e) {
-    console.log(e)
     return ''
   }
 }

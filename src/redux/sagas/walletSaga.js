@@ -232,7 +232,6 @@ function* fetchRecentHistoryFunc(action) {
       popupType: 'history_transaction'
     }));
   } catch (e) {
-    console.log(e)
     alert(e)
     yield put({
       type: AT.fetchTransactionHistoryRejected,
@@ -248,7 +247,6 @@ function* fetchTransactionHistoryFunc(action) {
     if (walletCoinType === 'icx') {
       if (isPending) {
         let callArr = [];
-        console.log(pendingList)
         for (let i = 0; i < pendingList.length; i++) {
           callArr.push(call(CHECK_ICX_TRANSACTION_EXIST, {
             ...pendingList[i],
@@ -256,20 +254,17 @@ function* fetchTransactionHistoryFunc(action) {
           }))
         }
         let resultArr = yield all(callArr);
-        console.log(resultArr)
         const payload = yield call(FETCH_TRANSACTION_HISTORY_API, {
           ...action.payload,
           pendingList: resultArr,
         });
         yield put({ type: AT.fetchTransactionHistoryFulfilled, payload: payload.data });
       } else {
-        console.log(action.payload)
         const payload = yield call(FETCH_TRANSACTION_HISTORY_API, action.payload)
         yield put({ type: AT.fetchTransactionHistoryFulfilled, payload: payload.data, totalData: payload.total });
       }
     }
   } catch (e) {
-    console.log(e)
     alert(e)
     yield put({
       type: AT.fetchTransactionHistoryRejected,
@@ -305,7 +300,6 @@ function* updatePasswordFunc(action) {
 function* getTokenInfoFunc(action) {
   try {
     const payload = yield call(GET_TOKEN_INFO, action.address, action.coinType);
-    console.log(payload)
     yield put({ type: AT.getTokenInfoFulfilled, payload });
   } catch (error) {
     yield put({ type: AT.getTokenInfoRejected, error });
@@ -330,7 +324,6 @@ function* addTokenFunc(action) {
         fetchArr.push(call(FETCH_TOKEN_BALANCE, action.tokenArr[0].address, action.tokenArr[0].decimals, ledgerWallet.account, ledgerWallet.type));
       }
       const resultArr = yield all(fetchArr);
-      console.log(resultArr)
       for (let i = 0; i < action.tokenArr.length; i++) {
         const isError = resultArr[i] === 'error'
         setArr.push(put({
